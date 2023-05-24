@@ -14,7 +14,7 @@ spec:
         app: cci-deployment
     spec:
       containers:
-      - image: swr.cn-north-4.myhuaweicloud.com/demo-test/demo:v1.1
+      - image: swr.ap-southeast-2.myhuaweicloud.com/demo-test/demo:v1.1
         name: container-0
         ports:
         - containerPort: 80

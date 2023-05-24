@@ -27,7 +27,7 @@ export async function installCciIamAuthenticatorByPlatform(
 export function getAuthDownloadURL(platform: string): string {
   switch (platform.toLowerCase()) {
     case 'linux':
-      return 'https://cci-iam-authenticator.obs.cn-north-4.myhuaweicloud.com/latest/linux-amd64/cci-iam-authenticator';
+      return 'https://cci-iam-authenticator.obs.ap-southeast-2.myhuaweicloud.com/latest/linux-amd64/cci-iam-authenticator';
     case 'darwin':
       return 'https://cci-iam-authenticator-all-arch.obs.cn-south-1.myhuaweicloud.com/darwin-amd64/cci-iam-authenticator';
     default:

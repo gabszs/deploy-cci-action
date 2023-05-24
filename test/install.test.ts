@@ -2,7 +2,7 @@ import * as install from '../src/install';
 
 test('test auth download url on Linux', () => {
   expect(install.getAuthDownloadURL('Linux')).toBe(
-    'https://cci-iam-authenticator.obs.cn-north-4.myhuaweicloud.com/latest/linux-amd64/cci-iam-authenticator'
+    'https://cci-iam-authenticator.obs.ap-southeast-2.myhuaweicloud.com/latest/linux-amd64/cci-iam-authenticator'
   );
 });
 

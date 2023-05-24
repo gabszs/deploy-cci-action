@@ -21,7 +21,7 @@ import {ListNetworkingCciIoV1beta1NamespacedNetworkResponse} from './model/ListN
 import {ReadCoreV1NamespaceRequest} from './model/ReadCoreV1NamespaceRequest';
 
 const DEFAULT_AVAILABLE_ZONE_MAP = new Map<string, string>([
-  ['cn-north-4', 'cn-north-4a'],
+  ['ap-southeast-2', 'ap-southeast-2a'],
   ['cn-east-3', 'cn-east-3a'],
   ['cn-east-2', 'cn-east-2c'],
   ['cn-south-1', 'cn-south-1f']
