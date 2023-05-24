@@ -15,7 +15,8 @@ const regionArray: string[] = [
   'cn-north-4',
   'cn-east-2',
   'cn-east-3',
-  'cn-south-1'
+  'cn-south-1',
+  'ap-southeast-2'
 ];
 
 // 正则校验表达式
