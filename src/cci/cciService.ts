@@ -45,7 +45,9 @@ export function getAvailableZone(region: string): string {
  * @returns
  */
 export async function createNamespace(inputs: context.Inputs): Promise<void> {
+  console.log('create namespace start.');
   if (!(await isNamespaceExist(inputs))) {
+    console.log('namespace does not exist, create namespace.');
     // 新建Namespace
     const namespaceFileName = 'namespace-' + utils.getRandomByDigit(8) + '.yml';
     const namespaceContent = new Namespace(inputs.namespace);
@@ -55,6 +57,7 @@ export async function createNamespace(inputs: context.Inputs): Promise<void> {
       'utf8'
     );
     applyNamespace(namespaceFileName);
+    console.log('create namespace success.');
 
     // 新建Network
     const securityGroupId = await vpc.listDefaultCCISecurityGroups(inputs);
@@ -77,6 +80,7 @@ export async function createNamespace(inputs: context.Inputs): Promise<void> {
     fs.writeFileSync(networkFileName, yaml.stringify(networkContent), 'utf8');
     applyNetwork(networkFileName, inputs.namespace);
   }
+  console.log('create namespace end.');
 }
 
 /**
@@ -87,12 +91,14 @@ export async function createNamespace(inputs: context.Inputs): Promise<void> {
 export async function createOrUpdateDeployment(
   inputs: context.Inputs
 ): Promise<void> {
+  console.log('create or update deployment start.');
   if (!(await isDeploymentExist(inputs))) {
     core.info('deployment does not exist.');
     await createDeployment(inputs);
   } else {
     await updateDeployment(inputs);
   }
+  console.log('create or update deployment end.');
 }
 
 /**
