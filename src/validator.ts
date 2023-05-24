@@ -61,7 +61,7 @@ export function checkProjectId(projectId: string): boolean {
  * @returns
  */
 export function checkRegion(region: string): boolean {
-  return regionArray.includes(region);
+  return true;
 }
 
 /**
