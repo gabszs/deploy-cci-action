@@ -14,7 +14,7 @@ inputs:
   region:
     description: 'Region. This input is required if not using huaweicloud/auth-action.'
     required: false
-    default: 'cn-north-4'
+    default: 'ap-southeast-2'
   namespace:
     description: "华为云CCI命名空间名称"
     required: true
