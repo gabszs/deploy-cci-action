@@ -3,7 +3,7 @@ import * as fs from 'fs';
 
 describe('test get available zone', () => {
   const testCase = [
-    {region: 'ap-southeast-2', result: 'ap-southeast-2a'},
+    {region: 'cn-north-4', result: 'cn-north-4a'},
     {region: 'cn-east-3', result: 'cn-east-3a'},
     {region: 'cn-east-2', result: 'cn-east-2c'},
     {region: 'cn-south-1', result: 'cn-south-1f'},

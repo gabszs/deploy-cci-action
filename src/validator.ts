@@ -6,13 +6,13 @@ import * as mime from 'mime';
 
 /**
  * 目前支持云容器实例CCI功能的region列表
- * 华北-北京四	ap-southeast-2
+ * 华北-北京四	cn-north-4
  * 华东-上海二	cn-east-2
  * 华东-上海一	cn-east-3
  * 华南-广州	cn-south-1
  */
 const regionArray: string[] = [
-  'ap-southeast-2',
+  'cn-north-4',
   'cn-east-2',
   'cn-east-3',
   'cn-south-1',

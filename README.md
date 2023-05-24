@@ -34,10 +34,10 @@ SWR需要[创建组织](https://support.huaweicloud.com/usermanual-swr/swr_01_00
 | access_key    |   false    |         | 华为访问密钥即AK。如果使用华为云统一鉴权[huaweicloud/auth-action](https://github.com/huaweicloud/auth-action)可以不填写该参数。|
 | secret_key    |   false    |         | 访问密钥即SK。如果使用华为云统一鉴权[huaweicloud/auth-action](https://github.com/huaweicloud/auth-action)可以不填写该参数。|
 | project_id    |   false    |         | 项目ID。如果使用华为云统一鉴权[huaweicloud/auth-action](https://github.com/huaweicloud/auth-action)可以不填写该参数。|
-| region    |   false        |     ap-southeast-2    | region：华北-北京四	ap-southeast-2；华东-上海二	cn-east-2；华东-上海一	cn-east-3；华南-广州	cn-south-1。如果使用华为云统一鉴权[huaweicloud/auth-action](https://github.com/huaweicloud/auth-action)可以不填写该参数。|
+| region    |   false        |     cn-north-4    | region：华北-北京四	cn-north-4；华东-上海二	cn-east-2；华东-上海一	cn-east-3；华南-广州	cn-south-1。如果使用华为云统一鉴权[huaweicloud/auth-action](https://github.com/huaweicloud/auth-action)可以不填写该参数。|
 | namespace    |   true         |         | CCI命名空间|
 | deployment    |   true         |         | CCI负载名称|
-| image    |   true         |         | 镜像地址，如1)[swr镜像中心](https://console.huaweicloud.com/swr/?agencyId=66af5f8d4b84416785817649d667a396&region=ap-southeast-2&locale=zh-cn#/app/swr/huaweiOfficialList)：nginx:latest;  2) swr[我的镜像](https://console.huaweicloud.com/swr/?agencyId=66af5f8d4b84416785817649d667a396&region=ap-southeast-2&locale=zh-cn#/app/warehouse/list):swr.ap-southeast-2.myhuaweicloud.com/demo/demo:v1.1|
+| image    |   true         |         | 镜像地址，如1)[swr镜像中心](https://console.huaweicloud.com/swr/?agencyId=66af5f8d4b84416785817649d667a396&region=cn-north-4&locale=zh-cn#/app/swr/huaweiOfficialList)：nginx:latest;  2) swr[我的镜像](https://console.huaweicloud.com/swr/?agencyId=66af5f8d4b84416785817649d667a396&region=cn-north-4&locale=zh-cn#/app/warehouse/list):swr.cn-north-4.myhuaweicloud.com/demo/demo:v1.1|
 | manifest    |   false    |         | 负载deployment描述yaml文件|
 
 ## **action片段使用介绍**
@@ -60,7 +60,7 @@ action片段默认使用华为云统一鉴权[huaweicloud/auth-action](https://g
       with:
         namespace: 'namespace-name'
         deployment: 'deployment-name'
-        image: swr.ap-southeast-2.myhuaweicloud.com/demo/demo:v1.1
+        image: swr.cn-north-4.myhuaweicloud.com/demo/demo:v1.1
 ```
 ### 根据提供的yaml文件部署CCI容器实例
 ```yaml
@@ -70,12 +70,12 @@ action片段默认使用华为云统一鉴权[huaweicloud/auth-action](https://g
       with:
         namespace: 'namespace-name'
         deployment: 'deployment-name'
-        image: swr.ap-southeast-2.myhuaweicloud.com/demo/demo:v1.1
+        image: swr.cn-north-4.myhuaweicloud.com/demo/demo:v1.1
         manifest: ./deployment.yml
 ```
 
 ### 1.部署Kubernetes样例yaml文件
-以下示例为一个名为cci-deployment的Deployment负载，负载在命名空间是cci-namespace-70395701，使用swr.ap-southeast-2.myhuaweicloud.com/namespace/demo:v1.1t镜像创建两个Pod，每个Pod占用500m core CPU、1G内存。
+以下示例为一个名为cci-deployment的Deployment负载，负载在命名空间是cci-namespace-70395701，使用swr.cn-north-4.myhuaweicloud.com/namespace/demo:v1.1t镜像创建两个Pod，每个Pod占用500m core CPU、1G内存。
 
 
 ```yaml
@@ -94,7 +94,7 @@ spec:
         app: cci-deployment  # Deployment的名称即是负载的名称
     spec:
       containers:
-      - image: swr.ap-southeast-2.myhuaweicloud.com/namespace/demo:v1.1  # 镜像地址,传入参数image会将次镜像地址替换
+      - image: swr.cn-north-4.myhuaweicloud.com/namespace/demo:v1.1  # 镜像地址,传入参数image会将次镜像地址替换
         name: container-0
         ports:
         - containerPort: 80
@@ -131,7 +131,7 @@ on:
     branches:
        master
 env:
-  REGION_ID: region_id                  # set this to your preferred huaweicloud region, e.g. ap-southeast-2
+  REGION_ID: region_id                  # set this to your preferred huaweicloud region, e.g. cn-north-4
   PROJECT_ID: project_id   # 项目ID，可以在华为云我的凭证获取
   ACCESS_KEY_ID: ${{ secrets.ACCESSKEY }}             # set this to your huaweicloud access-key-id
   ACCESS_KEY_SECRET: ${{ secrets.SECRETACCESSKEY }}               # set this to your huaweicloud access-key-secret
@@ -200,6 +200,6 @@ jobs:
 ## Action中使用的公网地址说明
 1.此Action是部署云容器实例CCI, 使用过程会调用华为云服务OpenAPI,涉及到云服务是: 统一身份认证服务 IAM,云容器实例 CCI,虚拟私有云 VPC,弹性负载均衡 ELB。华为云服务OpenAPI统一公网汇总页面[华为云地区和终端节点](https://developer.huaweicloud.com/endpoint?all)  
 
-2.[k8s client端的认证插件cci-iam-authenticator linux下载地址](https://cci-iam-authenticator.obs.ap-southeast-2.myhuaweicloud.com/latest/linux-amd64/cci-iam-authenticator)  
+2.[k8s client端的认证插件cci-iam-authenticator linux下载地址](https://cci-iam-authenticator.obs.cn-north-4.myhuaweicloud.com/latest/linux-amd64/cci-iam-authenticator)  
 
 3.[k8s client端的认证插件cci-iam-authenticator darwin下载地址](https://cci-iam-authenticator-all-arch.obs.cn-south-1.myhuaweicloud.com/darwin-amd64/cci-iam-authenticator)

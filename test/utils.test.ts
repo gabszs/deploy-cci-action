@@ -125,24 +125,24 @@ describe('test get invalid random by digit ', () => {
 describe('test get endpoint ', () => {
   const testCase = [
     {
-      region: 'ap-southeast-2',
+      region: 'cn-north-4',
       service: EndpointServiceName.CCI,
-      result: 'https://cci.ap-southeast-2.myhuaweicloud.com'
+      result: 'https://cci.cn-north-4.myhuaweicloud.com'
     },
     {
-      region: 'ap-southeast-2',
+      region: 'cn-north-4',
       service: EndpointServiceName.ELB,
-      result: 'https://elb.ap-southeast-2.myhuaweicloud.com'
+      result: 'https://elb.cn-north-4.myhuaweicloud.com'
     },
     {
-      region: 'ap-southeast-2',
+      region: 'cn-north-4',
       service: EndpointServiceName.IAM,
-      result: 'https://iam.ap-southeast-2.myhuaweicloud.com'
+      result: 'https://iam.cn-north-4.myhuaweicloud.com'
     },
     {
-      region: 'ap-southeast-2',
+      region: 'cn-north-4',
       service: EndpointServiceName.VPC,
-      result: 'https://vpc.ap-southeast-2.myhuaweicloud.com'
+      result: 'https://vpc.cn-north-4.myhuaweicloud.com'
     }
   ];
   testCase.forEach(item => {

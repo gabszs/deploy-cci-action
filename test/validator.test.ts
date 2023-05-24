@@ -70,7 +70,7 @@ describe('test whether the projectId parameter is valid', () => {
 
 describe('test whether the region parameter is valid', () => {
   const testCase = [
-    {region: 'ap-southeast-2', result: true},
+    {region: 'cn-north-4', result: true},
     {region: 'cn-east-2', result: true},
     {region: 'cn-east-3', result: true},
     {region: 'cn-south-1', result: true},
@@ -184,20 +184,20 @@ describe('test whether the imageList parameter is valid', () => {
     },
     {
       description: '镜像region和cci的region不一致',
-      region: 'ap-southeast-2',
+      region: 'cn-north-4',
       image: 'swr.cn-south-1.myhuaweicloud.com/demo-test/demo:v1.2',
       result: false
     },
     {
       description: 'swr镜像地址不合法-字符开头不是swr.',
-      region: 'ap-southeast-2',
-      image: 'swrap-southeast-2.myhuaweicloud.com/demo-test/demo:v1.2',
+      region: 'cn-north-4',
+      image: 'swrcn-north-4.myhuaweicloud.com/demo-test/demo:v1.2',
       result: false
     },
     {
       description: 'swr镜像地址不合法-域名不对',
-      region: 'ap-southeast-2',
-      image: 'swrap-southeast-2myhuaweicloudcom/demo-test/demo:v1.2',
+      region: 'cn-north-4',
+      image: 'swrcn-north-4myhuaweicloudcom/demo-test/demo:v1.2',
       result: false
     }
   ];
