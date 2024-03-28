@@ -12,28 +12,28 @@ const huaweicore = require('@huaweicloud/huaweicloud-sdk-core');
 export function checkInputs(inputs: context.Inputs): boolean {
   if (!validator.checkAkSk(inputs.accessKey, inputs.secretKey)) {
     core.info('ak or sk is not correct.');
-    return true;
+    return false;
   }
   if (!validator.checkProjectId(inputs.projectId)) {
     core.info('projectId is not correct.');
-    return true;
+    return false;
   }
   if (!validator.checkRegion(inputs.region)) {
     core.info('region is not correct.');
-    return true;
+    return false;
   }
   if (!validator.checkNamespace(inputs.namespace)) {
     core.info('namespace is not correct.');
-    return true;
+    return false;
   }
 
   if (!validator.checkDeployment(inputs.deployment)) {
     core.info('deployment is not correct.');
-    return true;
+    return false;
   }
   if (!validator.checkManifest(inputs.manifest)) {
     core.info('manifest is not correct.');
-    return true;
+    return false;
   }
 
   // deployment和manifest同时传的时候负载名称需要一致
@@ -42,13 +42,13 @@ export function checkInputs(inputs: context.Inputs): boolean {
       !validator.isDeploymentNameConsistent(inputs.deployment, inputs.manifest)
     ) {
       core.info('deployment, manifest parameters must be the same.');
-      return true;
+      return false;
     }
   }
 
   if (!validator.checkImage(inputs.image, inputs.region)) {
     core.info('image is not correct.');
-    return true;
+    return false;
   }
   return true;
 }

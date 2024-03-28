@@ -16,7 +16,11 @@ const regionArray: string[] = [
   'cn-east-2',
   'cn-east-3',
   'cn-south-1',
-  'ap-southeast-2'
+  'ap-southeast-2',
+  'sa-brazil-1',
+  'na-mexico-1',
+  'la-south-2',
+  'la-north-2'
 ];
 
 // 正则校验表达式
@@ -61,7 +65,7 @@ export function checkProjectId(projectId: string): boolean {
  * @returns
  */
 export function checkRegion(region: string): boolean {
-  return true;
+  return regionArray.includes(region);
 }
 
 /**
